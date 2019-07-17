@@ -1,0 +1,198 @@
+
+// COLORS
+$mainLT: white
+$mainDK: black
+
+$secondaryLT: #bbb
+$secondaryDK: #666
+
+
+// MIXINS
+@mixin transition
+  transition: all .4s ease-in-out
+
+@mixin text-shadow-DK
+  text-shadow: 5px 5px 7px #333
+
+// MEDIA QUERIES
+
+  // DESKTOP FIRST
+
+@mixin xs
+	@media screen and (max-width : 480px)
+		@content
+
+@mixin sm
+	@media screen and (max-width: 580px)
+		@content
+
+@mixin md
+	@media screen and (max-width : 768px)
+		@content
+
+@mixin lg
+	@media screen and (max-width : 992px)
+		@content
+
+@mixin xl
+	@media screen and (max-width : 1200px)
+		@content
+
+  // MOBILE FIRST
+
+// @mixin xs
+// 	@media screen and (min-width : 480px)
+// 		@content
+//
+// @mixin sm
+// 	@media screen and (min-width: 580px)
+// 		@content
+//
+// @mixin md
+// 	@media screen and (min-width : 768px)
+// 		@content
+//
+// @mixin lg
+// 	@media screen and (min-width : 992px)
+// 		@content
+//
+// @mixin xl
+// 	@media screen and (min-width : 1200px)
+// 		@content
+
+
+// GENERAL
+a,
+a:active,
+a:visited,
+a:hover
+  color: inherit
+  text-decoration: none
+
+ul,
+li
+  list-style: none
+  margin: 0
+  padding: 0
+
+// CLASSES
+
+  // ARROW TRIANGLE
+.arrow-down
+  position: absolute
+  bottom: 10px
+  left: 50%
+  transform: translateY(-50%)
+  outline: none
+  border-top: 28px solid white
+  border-left: 32px solid transparent
+  border-right: 32px solid transparent
+
+
+// ********************JQUERY SLIDER************************
+/*REVIEWS SECTION*/
+
+	/*HOME PAGE SLIDER*/
+
+$arrowColor: rgba(#134736, 0.5)
+$arrowColorFocus: #134836
+
+#review-slider
+  width: 80%
+  height: auto
+  transition: .6S
+  margin: auto
+  margin-top: 40px
+  margin-bottom: 80px
+  position: relative
+  @include sm
+    width: 100%
+  .slider-arrow
+    position: absolute
+    z-index: 999
+    top: 0
+    height: 100%
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    @include sm
+      top: -20px
+      width: 50%
+      height: 30px
+    i
+      margin: 0
+      padding: 0
+      font-size: 60px
+      color: $arrowColor
+      transition: .5s
+      @include lg
+        font-size: 36px
+    &:hover
+      i
+        color: $arrowColorFocus
+  .slider-arrow.left
+  	left: -55px
+  .slider-arrow.right
+  	right: -55px
+  .slides-wrapper
+    width: 100%
+    height: 100%
+    margin: auto
+    overflow: hidden
+    .review-slide
+      visibility: hidden
+      opacity: 0
+      position: absolute
+      z-index: -1
+      left: 100%
+      width: 100%
+      height: auto
+      padding: 30px 12%
+      transition: .5s
+      text-align: center
+      p
+        color: #666
+      @include sm
+        padding: 30px 10px
+        p
+          font-size: 16px
+          i
+            font-size: 10px
+        h4
+          font-size: 18px
+        h6
+          font-size: 14px
+    .review-slide.active
+      visibility: visible
+      opacity: 1
+      left: 0
+      z-index: 99
+    .review-slide.past
+      visibility: hidden
+      opacity: 0
+      left: -100%
+      z-index: -1
+  .slider-dots
+    width: 80%
+    margin: auto
+    padding: 10px 0
+    #dots
+      width: 100%
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      .dot
+        width: 12px
+        height: 12px
+        border-radius: 50%
+        border: 2px solid #999
+        margin: 0 3px
+        transition: .4s
+      .dot.active
+        background: $arrowColor
+
+
+
+// *****************JQUERY SLIDER END***********************
